@@ -1,0 +1,91 @@
+﻿<%@ Master Language="VB" AutoEventWireup="false" CodeBehind="NotLoggedIn.Master.vb" Inherits="LotteryWebsite.Site2" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Warwick Weekly Windfall</title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/style.css" rel="stylesheet" />
+    <link href="css/w3.css" rel="stylesheet" />
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/JavaScript.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.13.1/jquery.validate.min.js"></script>
+</head>
+<body>
+
+    <form id="form1" runat="server">
+        <div class="navbar navbar-fixed-top navbar-inverse">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">Warwick Weekly Lottery</a>
+                </div>
+                <div class="collapse navbar-collapse">
+                    <!--- Navbar Login Form --->
+                    <ul class="nav navbar-nav navbar-right" id="NavbarLoginForm" runat="server">
+
+                        <li>
+                            <asp:HyperLink ID="HyperLink3" runat="server" NavigateUrl="~/Register.aspx">Register</asp:HyperLink></li>
+                        <li class="dropdown">
+                            <a href="" class="dropdown-toggle" data-toggle="dropdown">Log In <span class="caret"></span></a>
+                            <ul class="dropdown-menu dropdown-lr animated slideInRight" role="menu" style="width: 300px">
+                                <div class="col-lg-12">
+                                    <div class="text-center">
+                                        <h3><b>Log In</b></h3>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="username" class="control-label">Username</label>
+                                        <asp:TextBox class="form-control" ID="UserLogin" runat="server" Placeholder="Username" name="username" value="" required="" title="Please enter your username"></asp:TextBox>
+                                        <span class="help-block"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="password" class="control-label">Password</label>
+
+                                        <asp:TextBox ID="PassLogin" runat="server" class="form-control" name="password" placeholder="password" value="" required="" title="Please enter your password" TextMode="Password"></asp:TextBox>
+                                        <div class="help-block text-right"><a href="/RecoverPassword.aspx">Forget the password ?</a></div>
+                                    </div>
+                                    <div id="loginErrorMsg" class="alert alert-error hide">Wrong username or password</div>
+                                    <div class="checkbox">
+                                        <label>
+                                            <asp:CheckBox ID="CheckBoxRemember" runat="server" />
+                                            Remember login
+                                        </label>
+                                        <p class="help-block">(if this is a private computer)</p>
+                                    </div>
+                                    <asp:Button ID="LoginButton" runat="server" Text="Log In" class="btn btn-success btn-block" />
+                                    <br />
+                                    <asp:Label ID="SuccessLabel" runat="server"></asp:Label>
+                                    <asp:RequiredFieldValidator ID="UserValidator" runat="server" ControlToValidate="UserLogin" ErrorMessage=""></asp:RequiredFieldValidator>
+                                    <asp:RequiredFieldValidator ID="PassValidator" runat="server" ControlToValidate="PassLogin" ErrorMessage=""></asp:RequiredFieldValidator>
+
+
+                                </div>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <!--/.nav-collapse -->
+            </div>
+        </div>
+
+        <div class="container">
+
+            <asp:Label ID="SessionLabel" runat="server"></asp:Label>
+
+            <asp:ContentPlaceHolder ID="ContentPlaceHolderMain" runat="server">
+            </asp:ContentPlaceHolder>
+
+        </div>
+    </form>
+    <!-- /.container -->
+</body>
+</html>

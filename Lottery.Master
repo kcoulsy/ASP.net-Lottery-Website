@@ -1,0 +1,86 @@
+﻿<%@ Master Language="VB" AutoEventWireup="false" CodeBehind="Lottery.Master.vb" Inherits="LotteryWebsite.Site1" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Warwick Weekly Windfall</title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/style.css" rel="stylesheet" />
+    <link href="css/w3.css" rel="stylesheet" />
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/JavaScript.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.13.1/jquery.validate.min.js"></script>
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top" style="color: white">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/home.aspx">Warwick Weekly Lottery</a>
+            </div>
+            <div class="collapse navbar-collapse">
+
+                <ul class="nav navbar-nav navbar-right" id="LoggedInLinks" runat="server">
+
+                    <li class="dropdown " id="AdminLinks" runat="server"><a href="~/Admin.aspx" id="AdminDrop" data-toggle="dropdown" class="dropdown-toggle" role="button">Admin<b class="caret"></b></a>
+                        <ul role="menu" class="dropdown-menu" aria-labelledby="drop1">
+                            <li role="presentation">
+                                <asp:HyperLink ID="NavDraw" runat="server" NavigateUrl="~/Draw.aspx">Draw</asp:HyperLink></li>
+                            <li role="separator" class="divider"></li>
+                            <li role="presentation">
+                                <asp:HyperLink ID="NavAdminPanel" runat="server" NavigateUrl="~/Admin.aspx">Config Panel</asp:HyperLink></li>
+                            <li role="presentation">
+                                <asp:HyperLink ID="NavUserList" runat="server" NavigateUrl="~/UserList.aspx">User List</asp:HyperLink></li>
+                            <li role="presentation">
+                                <asp:HyperLink ID="NavViewEntries" runat="server" NavigateUrl="~/UserEntries.aspx">Entries</asp:HyperLink></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <asp:HyperLink ID="MasterHome" runat="server" NavigateUrl="~/Home.aspx">Home</asp:HyperLink></li>
+                    <li>
+                        <asp:HyperLink ID="MasterPlay" runat="server" NavigateUrl="~/Play.aspx">Play Now</asp:HyperLink></li>
+                    <li class="dropdown "><a href="~/Usercp.aspx" id="drop1" data-toggle="dropdown" class="dropdown-toggle" role="button">
+                        <asp:Label ID="UserNavName" runat="server" Text="Account"></asp:Label><b class="caret"></b></a>
+                        <ul role="menu" class="dropdown-menu" aria-labelledby="drop1">
+                            <li role="presentation">
+                                <asp:HyperLink ID="MasterCP" runat="server" NavigateUrl="~/Usercp.aspx">Control Panel</asp:HyperLink></li>
+                            <li role="presentation">
+                                <asp:HyperLink ID="MasterDeposit" runat="server" NavigateUrl="~/deposit.aspx">Deposit</asp:HyperLink></li>
+                            <li role="presentation">
+                                <asp:HyperLink ID="MasterWithdraw" runat="server" NavigateUrl="~/withdraw.aspx">Withdraw</asp:HyperLink></li>
+                            <li role="presentation">
+                                <asp:HyperLink ID="MasterLogout" runat="server" NavigateUrl="~/Logout.aspx">Logout</asp:HyperLink></li>
+                        </ul>
+                    </li>
+
+                </ul>
+                <ul class="nav navbar-nav navbar-right" id="LoggedOutLinks" runat="server">
+
+                    <li>
+                        <asp:HyperLink ID="HyperLink5" runat="server" NavigateUrl="~/Login.aspx">Login</asp:HyperLink></li>
+                    <li>
+                        <asp:HyperLink ID="HyperLink3" runat="server" NavigateUrl="~/Register.aspx">Register</asp:HyperLink></li>
+
+
+                </ul>
+            </div>
+            <!--/.nav-collapse -->
+        </div>
+    </div>
+
+    <form id="form1" runat="server">
+        <asp:ContentPlaceHolder ID="ContentPlaceHolderMain" runat="server">
+        </asp:ContentPlaceHolder>
+    </form>
+
+
+</body>
+</html>
